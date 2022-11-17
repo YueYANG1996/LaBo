@@ -1,0 +1,39 @@
+dtd 2shot ViT-L/14, best C = 0.033376246942920386
+Val Accuracy: 53.191, Val std: 0.000
+Test Accuracy = 51.714
+
+dtd 4shot ViT-L/14, best C = 13.33521432163324
+Val Accuracy: 60.550, Val std: 0.000
+Test Accuracy = 60.756
+
+dtd 8shot ViT-L/14, best C = 0.01715437896342879
+Val Accuracy: 68.794, Val std: 0.000
+Test Accuracy = 69.031
+
+dtd 16shot ViT-L/14, best C = 0.01
+Val Accuracy: 74.468, Val std: 0.000
+Test Accuracy = 74.704
+
+dtd allshot ViT-L/14, best C = 0.1
+Val Accuracy: 80.496, Val std: 0.000
+Test Accuracy = 81.738
+
+dtd 60shot ViT-L/14, best C = 0.1
+Val Accuracy: 80.496, Val std: 0.000
+Test Accuracy = 81.678
+
+dtd 1shot ViT-L/14, best C = 100000.0
+Val Accuracy: 43.617, Val std: 0.000
+Test Accuracy = 41.667
+
+dtd allshot ViT-L/14, best C = 0.1
+Val Accuracy: 80.496, Val std: 0.000
+Test Accuracy = 81.678
+
+dtd 16shot ViT-B/32, best C = 0.1
+Val Accuracy: 70.035, Val std: 0.000
+Test Accuracy = 68.735
+
+dtd 16shot ViT-B/16, best C = 0.010181517217181819
+Val Accuracy: 69.858, Val std: 0.000
+Test Accuracy = 71.217

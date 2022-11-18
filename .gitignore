@@ -4,3 +4,4 @@
 *.npy
 __pycache__
 wandb/
+lightning_logs/

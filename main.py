@@ -134,7 +134,7 @@ def linear_probe_sklearn_main(cfg):
     accuracy = np.mean((test_labels == predictions).astype(np.float32)) * 100.
     print(f"Test Accuracy = {accuracy:.3f}")
 
-    with open("output/linear_prob/{}.txt".format(cfg.dataset), "a") as f:
+    with open("output/linear_probe/{}.txt".format(cfg.dataset), "a") as f:
         f.write("{} {}shot {}, best C = {}, seed = {}\n".format(cfg.dataset, cfg.n_shots, cfg.clip_model, best_c, seed))
         f.write(f"Val Accuracy: {val_acc_mean:.3f}, Val std: {val_acc_std:.3f}\n")
         f.write(f"Test Accuracy = {accuracy:.3f}\n\n")

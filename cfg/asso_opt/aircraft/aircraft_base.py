@@ -1,14 +1,15 @@
 _base_ = '../base.py'
 # dataset
-proj_name = "flower"
-concept_root = 'datasets/flower/concepts/'
-img_split_path = 'datasets/flower/splits'
-img_path = 'datasets/flower/images'
+proj_name = "aircraft"
+concept_root = 'datasets/aircraft/concepts/'
+img_split_path = 'datasets/aircraft/splits'
+img_path = 'datasets/aircraft/images'
+
 concept_type = "all"
-img_ext = '.jpg'
-raw_sen_path = concept_root + 'concepts_raw.npy'
-concept2cls_path = concept_root + 'concept2cls.npy'
-cls_name_path = concept_root + 'cls_names.npy'
+img_ext='.jpg'
+raw_sen_path = concept_root + '/concepts_raw.npy'
+concept2cls_path = concept_root + '/concept2cls.npy'
+cls_name_path = concept_root + '/cls_names.npy'
 num_cls = 102
 
 ## data loader
@@ -16,7 +17,7 @@ bs = 128
 on_gpu = True
 
 # concept select
-num_concept = num_cls * 25
+num_concept = num_cls * 50
 
 # weight matrix fitting
 lr = 5e-6

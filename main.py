@@ -1,10 +1,10 @@
+import os
 import utils
+import json
 import argparse
 import pytorch_lightning as pl
 import torch as th
-from pathlib import Path
 import numpy as np
-import wandb
 from sklearn.metrics import confusion_matrix
 import random
 
@@ -141,13 +141,34 @@ def linear_probe_sklearn_main(cfg):
     matrix = confusion_matrix(test_labels, predictions)
     print("Macro Accuracy = {}".format(np.mean(matrix.diagonal()/matrix.sum(axis=1)) * 100))
 
+def save_npy_files(class2concepts, save_dir):
+    # sort class name to make sure they are in the same order, to avoid potential problem
+    class_names = sorted(list(class2concepts.keys()))
+    num_concept = sum([len(concepts) for concepts in class2concepts.values()])
+    concept2cls = np.zeros(num_concept)
+    i = 0
+    all_concepts = []
+    for class_name, concepts in class2concepts.items():
+        class_idx = class_names.index(class_name)
+        for concept in concepts:
+            all_concepts.append(concept)
+            concept2cls[i] = class_idx
+            i += 1
+    np.save(save_dir + 'concepts_raw.npy', np.array(all_concepts))
+    np.save(save_dir + 'cls_names.npy', np.array(class_names))
+    np.save(save_dir + 'concept2cls.npy', concept2cls)
 
-def asso_opt_new_main(cfg):
+
+def asso_opt_main(cfg):
     from models.asso_opt.asso_opt import AssoConcept, AssoConceptFast
     from models.select_concept.select_algo import mi_select, clip_score_select, group_mi_select, group_clip_select, submodular_select, random_select
     from data import DataModule, DotProductDataModule
     import random
     proj_name = cfg.proj_name
+
+    if not os.path.isfile(cfg.cls_name_path):
+        class2concepts = json.load(open(cfg.concept_root + "class2concepts.json", "r"))
+        save_npy_files(class2concepts, cfg.concept_root)
     
     # concept seletion method
     if cfg.concept_select_fn == "submodular":

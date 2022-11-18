@@ -1,2 +1,6 @@
 *.jpg
+*.pth
+*.ckpt
+*.npy
 __pycache__
+wandb/

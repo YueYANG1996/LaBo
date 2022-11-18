@@ -1,5 +1,4 @@
-# $1: mode (asso_opt/clip_finetune), 
-# $2: number of shots
-# $3: dataset (flower/food101)
+# $1: number of shots
+# $2: dataset (flower/food101)
 
-python main.py --cfg cfg/$1/$3/$3_$2shot_fac.py --work-dir exp/$1/$3/$3_$2shot_fac --func $1_main ${@:4}
+python main.py --cfg cfg/asso_opt/$2/$2_$1shot_fac.py --work-dir exp/asso_opt/$2/$2_$1shot_fac --func $asso_opt_main ${@:3}

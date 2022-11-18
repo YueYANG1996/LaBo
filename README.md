@@ -12,7 +12,7 @@ pip install -r requirements.txt
 * `cfg/` saves the config files for all experiments including both linear probe (`cfg/linear_probe`) and LaBo (`cfg/asso_opt`). You can modify the config files to change the arguments of the system.
 * `datasets/` stores the dataset-specific data including `images`, `splits`, `concepts`. Please check `datasets/DATASET.md` for details. 
 
-	**Note**: the images of each dataset are not provided in this repo, you need to download them and 	store in the corresponding folder: `datasets/{dataset name}/images/`.
+	**Note**: the images of each dataset are not provided in this repo, you need to download them and 	store in the corresponding folder: `datasets/{dataset name}/images/`. Check `datasets/DATASET.md` for how to download all datasets.
 	
 * `exp/` is the work directories of the experiments, the config files and model checkpoints will be saved in this folder.
 * `models/` saves the models:
@@ -43,7 +43,14 @@ The code will automatically encoder the images and run hyperparameter search on 
 To train the LaBo, run the following command:
 
 ```
-sh labo_train.sh
+sh labo_train.sh {DATASET} {SHOTS}
 ```
+The training logs will be uploaded to the `wandb`, you may need to set up you `wandb` account locally. After reaching the maximum epochs, the checkpoint with the highest validation accuracy and the corresponding config file will be saved to `exp/asso_opt/{DATASET}/{DATASET}_{SHOT}shot_fac/`.
 
-## Testing
+## LaBo Testing
+To get the test performance, use the model checkpoint and corresponding configs saved in `exp/asso_opt/{DATASET}/{DATASET}_{SHOT}shot_fac/` and run:
+
+```
+sh labo_test.sh {CONFIG_PATH} {CHECKPOINT_PATH}
+```
+The test accuracy will be printed to `output/asso_opt/{DATASET}.txt`.

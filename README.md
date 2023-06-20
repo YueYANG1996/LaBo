@@ -5,7 +5,9 @@ Code for the CVPR 2023 paper "Language in a Bottle: Language Model Guided Concep
 We run our experiments using Python 3.9.13. You can install the required packages using:
 
 ```
-pip install -r requirements.txt
+conda create --name <env> python=3.9.13
+conda activate <env>
+conda install --file requirements.txt
 ```
 
 ## Directories

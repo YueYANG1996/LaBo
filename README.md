@@ -9,6 +9,7 @@ conda create --name labo python=3.9.13
 conda activate labo
 conda install --file requirements.txt
 ```
+You need to modify the source code of apricot to run the submodular optimization, see details [here](https://github.com/YueYANG1996/LaBo/issues/1).
 
 ## Directories
 * `cfg/` saves the config files for all experiments including both linear probe (`cfg/linear_probe`) and LaBo (`cfg/asso_opt`). You can modify the config files to change the arguments of the system.

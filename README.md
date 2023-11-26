@@ -1,5 +1,5 @@
 # LaBo
-Code for the CVPR 2023 paper "Language in a Bottle: Language Model Guided Concept Bottlenecks for Interpretable Image Classification"
+Code for the CVPR 2023 paper ["Language in a Bottle: Language Model Guided Concept Bottlenecks for Interpretable Image Classification"](https://arxiv.org/pdf/2305.14724.pdf)
 
 ## Set up environments
 We run our experiments using Python 3.9.13. You can install the required packages using:
@@ -57,3 +57,14 @@ To get the test performance, use the model checkpoint and corresponding configs 
 sh labo_test.sh {CONFIG_PATH} {CHECKPOINT_PATH}
 ```
 The test accuracy will be printed to `output/asso_opt/{DATASET}.txt`.
+
+Please cite our paper if you find it useful!
+```
+@inproceedings{yang2023language,
+  title={Language in a bottle: Language model guided concept bottlenecks for interpretable image classification},
+  author={Yang, Yue and Panagopoulou, Artemis and Zhou, Shenghao and Jin, Daniel and Callison-Burch, Chris and Yatskar, Mark},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={19187--19197},
+  year={2023}
+}
+```
